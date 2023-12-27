@@ -1,0 +1,21 @@
+<!-- add_cash.html -->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Cash
+{% endblock %}
+
+{% block main %}
+    <div class="row bg-light d-flex justify-content-center p-4 fw-bold mb-3">
+        <h3>Add Cash</h1>
+    </div>
+
+    <form action="/cash/add" method="post">
+        <div class="form-group">
+            <label class="mb-2" for="cash">Amount to Add:</label>
+            <input type="number" class="form-control mx-auto w-auto mb-3" id="cash" name="cash" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-success">Add Cash</button>
+    </form>
+{% endblock %}

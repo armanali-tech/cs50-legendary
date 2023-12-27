@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function checkAnswer(selectedAnswer) {
+                const correctAnswer = 'Paris';
+                const result = document.getElementById('result1');
+                const button = document.getElementById(selectedAnswer);
+                const resetColor = document.querySelectorAll("button").forEach(el => {
+                    el.className = 'button';
+                });;
+
+                if (selectedAnswer === correctAnswer) {
+                    result.textContent = 'Correct!';
+                    button.className = 'correct';
+                    // result.className = 'result correct';
+                } else {
+                    result.textContent = 'Incorrect';
+                    button.className = 'incorrect';
+                    // result.className = 'result incorrect';
+                }
+            }
+
+            function checkFreeResponse(selectedAnswer) {
+                const userAnswer = document.getElementById(selectedAnswer).value.toLowerCase();
+                if(!userAnswer) return;
+                const correctAnswer = 'tokyo';
+                const result = document.getElementById('result2');
+                const input = document.getElementById(selectedAnswer);
+                if (userAnswer === correctAnswer) {
+                    result.textContent = 'Correct!';
+                    input.className = 'correct';
+                } else {
+                    result.textContent = 'Incorrect';
+                    input.className = 'incorrect';
+                }
+            }
+        </script>
+        <!-- <script src="script.js"></script> -->
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <div id="question1">
+                    <h3>What is the capital of France?</h3>
+                    <button id="Paris" onclick="checkAnswer('Paris')">A. Paris</button>
+                    <button id="Berlin" onclick="checkAnswer('Berlin')">B. Berlin</button>
+                    <button id="Madrid" onclick="checkAnswer('Madrid')">C. Madrid</button>
+                    <p id="result1"></p>
+                  </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <div id="question2">
+                    <h3>What is the capital of Japan?</h3>
+                    <input type="text" id="answer2" placeholder="Type your answer">
+                    <button onclick="checkFreeResponse('answer2')">Confirm</button>
+                    <p id="result2"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
